@@ -1,0 +1,67 @@
+﻿using BluewaveLogistics.API.DTO;
+using BluewaveLogistics.API.Helpers;
+using BluewaveLogistics.API.Models;
+
+namespace BluewaveLogistics.API.Services
+{
+    public interface ILogisticService
+    {
+        Task<IEnumerable<LocationState>> GetLocations();
+        Task<(DeliveryFeeCalculationResponseDTO rsp, string msg)> CalculateDeliveryFee(DeliveryFeeCalculationRequestDTO request);
+    }
+
+    public class LogisticService : ILogisticService
+    {
+        private readonly ILocationService _locationService;
+
+        public LogisticService(ILocationService locationService)
+        {
+            _locationService = locationService;
+        }
+
+        public async Task<IEnumerable<LocationState>> GetLocations()
+        {
+            var locations = new JsonStoreUtil<LocationState>("Location.CA");
+
+            return await locations.GetAll();
+        }
+
+        public async Task<(DeliveryFeeCalculationResponseDTO rsp, string msg)> CalculateDeliveryFee(DeliveryFeeCalculationRequestDTO request)
+        {
+            var locations = await _locationService.GetAll();
+            if (!locations.Any())
+                return (null, "No location found");
+
+            // validate address
+            var pickupAddress = await _locationService.CreateAddressFromFullAddress(request.Source);
+            if (pickupAddress.rsp == null)
+                return (null, $"Pickup address error: {pickupAddress.msg}");
+
+            var deliveryAddress = await _locationService.CreateAddressFromFullAddress(request.Destination);
+            if (deliveryAddress.rsp == null)
+                return (null, $"Delivery address error: {deliveryAddress.msg}");
+
+
+            decimal fee = 0;
+
+            foreach (var item in request.Packages)
+            {
+                // call algo to calculate fee **wacky algo for test purpose
+                fee += CalculatePackageCostByLocationPoint(item, pickupAddress.rsp, deliveryAddress.rsp);
+            }
+
+            return (new()
+            {
+                Fee = fee,
+                Note = $"Delivery fee is ${fee:N2}"
+            }, "Okay");
+        }
+
+        private static decimal CalculatePackageCostByLocationPoint(Package dimension, AddressBlock pickupAddress, AddressBlock deliveryAddress)
+        {
+            double point = ((pickupAddress.Point + dimension.Height + dimension.Length -5) * dimension.Weight) / (dimension.Width + deliveryAddress.Point + dimension.Height);
+
+            return Math.Round(Convert.ToDecimal(point), 2);
+        }
+    }
+}

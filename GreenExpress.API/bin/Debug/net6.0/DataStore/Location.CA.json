@@ -1,0 +1,80 @@
+[
+  {
+    "state": "British Columbia",
+    "cities": [
+      {
+        "name": "Vancouver",
+        "point": 9.5
+      },
+      {
+        "name": "Burnaby",
+        "point": 7.8
+      },
+      //{
+      //  "name": "Surrey",
+      //  "point": 8
+      //},
+      {
+        "name": "Richmond",
+        "point": 8
+      },
+      //{
+      //  "name": "Port Moody",
+      //  "point": 5
+      //},
+      {
+        "name": "Terrace",
+        "point": 5.3
+      },
+      {
+        "name": "Delta",
+        "point": 4
+      },
+      {
+        "name": "Langford",
+        "point": 5
+      }
+    ]
+  },
+  {
+    "state": "Ontario",
+    "cities": [
+      {
+        "name": "Toronto",
+        "point": 10
+      },
+      {
+        "name": "Hamilton",
+        "point": 6
+      },
+      {
+        "name": "London",
+        "point": 8
+      },
+      //{
+      //  "name": "Windsor",
+      //  "point": 8
+      //},
+      {
+        "name": "Ottawa",
+        "point": 8
+      },
+      {
+        "name": "Timmins",
+        "point": 5.5
+      },
+      {
+        "name": "Brantford",
+        "point": 3.9
+      },
+      //{
+      //  "name": "Barrie",
+      //  "point": 4
+      //},
+      {
+        "name": "Brampton",
+        "point": 5
+      }
+    ]
+  }
+]

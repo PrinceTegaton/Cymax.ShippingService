@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GreenExpress.API</name>
+    </assembly>
+    <members>
+        <member name="M:GreenExpress.API.Controllers.DeliveryController.GetLocations">
+            <summary>
+            Get all service locations
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GreenExpress.API.Controllers.DeliveryController.GetFee(GreenExpress.API.DTO.DeliveryFeeCalculationRequestDTO,System.String)">
+            <summary>
+            Get delivery fee and ETA for package by dimension and location, within Canada only
+            </summary>
+            <param name="request"></param>
+            <remarks>Only British Columbia and Ontario provices are supported at the moment. To see all cities, use GetLocations</remarks>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

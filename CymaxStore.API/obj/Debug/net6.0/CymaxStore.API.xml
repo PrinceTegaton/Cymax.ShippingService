@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CymaxStore.API</name>
+    </assembly>
+    <members>
+        <member name="M:CymaxStore.API.Controllers.StoreController.CalculateFee(CymaxStore.API.DTO.ShippingFeeRequest)">
+            <summary>
+            Calculate fee for item(s) delivery
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

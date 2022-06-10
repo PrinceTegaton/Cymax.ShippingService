@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ParagoLogistics.API</name>
+    </assembly>
+    <members>
+        <member name="M:ParagoLogistics.API.Controllers.ShippingController.GetLocations">
+            <summary>
+            Get all service locations
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ParagoLogistics.API.Controllers.ShippingController.CalculateFee(ParagoLogistics.API.DTO.DeliveryFeeCalculationRequestDTO,System.String)">
+            <summary>
+            Get delivery fee and ETA for package by dimension and location, within Canada only
+            </summary>
+            <param name="request"></param>
+            <param name="authKey"></param>
+            <remarks>Only British Columbia and Ontario provices are supported at the moment. To see all cities, use GetLocations</remarks>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "lwaonlgUjXqfHy5z5swku9QoPMfMLli56fwmpu6c96s=",
+  "Source": "CymaxStore.API",
+  "BasePath": "_content/CymaxStore.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
